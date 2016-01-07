@@ -13,7 +13,7 @@ var res3 = document.getElementById('res3');
 var res4 = document.getElementById('res4');
 var finished = document.getElementById('finished');
 
-function intro() {
+function introFunc() {
   user = prompt('What is your name?');
   intro.textContent = 'Well hello, ' + user + '! Great to have you here on my page.';
   console.log('The user\'s name is ' + user + '.');
@@ -24,7 +24,7 @@ function question1() {
   var answer1 = prompt('Do you think I am a human? (answer yes or no please)');
 
   // Log the result to the console
-  console.log('The user answered ' + answer1 + 'to question 1.');
+  console.log('The user answered ' + answer1 + ' to question 1.');
 
   // want to accept multiple answers
   if (answer1.toLowerCase() === 'yes' || answer1.toLowerCase() === 'y'){
@@ -42,7 +42,7 @@ function question1() {
 function question2() {
   q2.textContent = 'What language do you think I was programmed in?';
   var answer2 = prompt('What language do you think I was programmed in?');
-  console.log('The user answered ' + answer2 + 'to question 2.');
+  console.log('The user answered ' + answer2 + ' to question 2.');
 
   switch(answer2.toLowerCase()){
     case 'javascript':
@@ -61,43 +61,45 @@ function question2() {
 }
 
 function question3() {
+  q3.textContent = 'Do you think the last question was a \'switch\' or an \'if/else\' statement?';
   var answer3 = prompt('Do you think the last question was a \'switch\' or an \'if/else\' statement?');
-  console.log('The user answered ' + answer3 + 'to question 3.')
+  console.log('The user answered ' + answer3 + ' to question 3.')
   if (answer3.toLowerCase() === 'switch'){
-    alert('Yes! Wow, ' + user + ', you are very perceptive.');
+    res3.textContent = 'Yes! Wow, ' + user + ', you are very perceptive.';
     // Add correct answer to variable and log it to the console
     counter ++;
     console.log('The user has answered ' + counter + ' question(s) correctly.');
   } else if (answer3.toLowerCase() === 'if/else') {
-    alert('Sorry, ' + user + ', but it was actually a switch!');
+    res3.textContent = 'Sorry, ' + user + ', but it was actually a switch!';
   } else {
-    alert('That didn\'t make sense to me, ' + user + '.');
+    res3.textContent = 'That didn\'t make sense to me, ' + user + '.';
   }
 }
 
 function question4() {
+  q4.textContent = 'Last question, ' + user + '! How many lines of code do you think I contain?';
   var correctnum = 0;
   while (correctnum == 0) {
     var answer4 = prompt('Last question, ' + user + '! How many lines of code do you think I contain?')
-    console.log('The user answered ' + answer4 + 'to question 4.')
+    console.log('The user answered ' + answer4 + ' to question 4.')
     if (answer4 == 65){
-      alert('Wow, impressive!');
+      res4.textContent = 'Wow, impressive!';
       // Add correct answer to variable and log it to the console
       counter ++;
       console.log('The user has answered ' + counter + ' question(s) correctly.');
       correctnum ++;
     } else if (parseInt(answer4) < 65){
-      alert('That is too few lines of code for a being of my complexity, ' + user + '!');
+      res4.textContent = 'That is too few lines of code for a being of my complexity, ' + user + '!';
     } else if (parseInt(answer4) > 65){
-      alert('That is an excessive amount of code, ' + user + '!');
+      res4.textContent = 'That is an excessive amount of code, ' + user + '!';
     }
   }
 }
 
-intro();
+introFunc();
 question1();
 question2();
 question3();
 question4();
 
-alert('You\'ve finished the quiz, ' + user + '. You answered ' + counter + ' question(s) correctly.');
+finished.textContent = 'You\'ve finished the quiz, ' + user + '. You answered ' + counter + ' question(s) correctly.';
